@@ -1,0 +1,49 @@
+% framesPath = 'E:\deepfake\test_video\test2\imgs2_face_res1\';%????????????????????
+% framesPath1 = 'E:\deepfake\test_video\test2\imgs2_face\';
+
+%framesPath = 'E:\deepfake\fastfaceswap\res\test_me3\imgs_blend1\';%????????????????????
+%framesPath1 = 'E:\deepfake\fastfaceswap\res\test_me3\imgs\';
+
+% framesPath = 'E:\deepfake\fastfaceswap\res\test_me3\imgs_blend_dark_dark\';%????????????????????
+% framesPath1 = 'E:\deepfake\fastfaceswap\res\test_me3\imgs_blend_dark\';
+
+framesPath = 'E:\deepfake\test_video\test_me3\imgs1\imgs_conti1-4000\';%????????????????????
+framesPath1 = 'E:\deepfake\test_video\test_me3\imgs1\imgs_conti1-400_ori_affine\';
+
+% framesPath = 'E:\deepfake\test_video\test_vd2\imgs1\imgs1_conti1-4000\';%????????????????????
+% framesPath1 = 'E:\deepfake\test_video\test_vd2\imgs1\imgs1_conti1-400_ori_affine\';
+
+%videoName = 'E:\deepfake\fastfaceswap\res\test_me3\test_dark.avi';%??????????????
+videoName = 'E:\deepfake\test_video\test_me3\imgs1\test_affine_conti1-hy4k.avi';%??????????????
+%videoName = 'E:\deepfake\test_video\test_vd2\imgs1\test_affine_conti1-hy4k.avi'
+fps = 30; %??
+startFrame = 1; %??????
+ %?????
+
+if(exist('videoName','file'))
+    delete videoName.avi
+end
+
+%?????????
+aviobj=VideoWriter(videoName);  %????avi?????????????
+aviobj.FrameRate=fps;
+
+open(aviobj);%Open file for writing video data
+img_names1=dir(fullfile(framesPath,'*.png'));
+img_names={img_names1.name};
+
+img_names2=dir(fullfile(framesPath1,'*.png'));
+img_names3={img_names2.name};
+endFrame = length(img_names3);%750;
+%????
+for i=startFrame:endFrame
+    i
+    fileName=char(img_names(i))    %??????? ???????0001.jpg 0002.jpg ....
+    fileName1=char(img_names3(i))
+    frames=imread([framesPath,fileName]);
+    frames1=imread([framesPath1,fileName1]);
+    %frames1=imresize(frames1,[128,128]);
+    frames2=[frames1,frames];
+    writeVideo(aviobj,frames2);
+end
+close(aviobj);% ??????
