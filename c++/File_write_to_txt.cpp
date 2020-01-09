@@ -8,3 +8,12 @@ if (!imgWrite) {
 fprintf(imgWrite, "%d ", *(p + i*imgw + j));
 
 fclose(imgWrite);
+
+// for c++
+std::ofstream out_pnt(outpntpath);
+out_pnt << 226 << std::endl;
+for (int k = 0; k < 226; k++)
+{
+	out_pnt <<x<< " " << y<< std::endl;
+}
+out_pnt.close();
