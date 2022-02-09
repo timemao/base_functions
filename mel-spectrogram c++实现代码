@@ -1,0 +1,29 @@
+2.mel代码
+Wav格式：
+https://blog.csdn.net/u010011236/article/details/53026127
+
+https://blog.csdn.net/Xiao13Yu14/article/details/46991581
+Mel: https://www.cnblogs.com/DWYCWWYHWYA/p/15749937.html
+DCT:https://zhuanlan.zhihu.com/p/55801049
+
+获取mel滤波器：
+https://pytorch.org/audio/stable/_modules/torchaudio/transforms.html#MelSpectrogram
+谱函数：
+http://man.hubwiz.com/docset/torchaudio.docset/Contents/Resources/Documents/_modules/torchaudio/functional.html
+
+hann-window:
+https://pytorch.org/docs/stable/generated/torch.hann_window.html
+
+stft:
+https://pytorch.org/docs/stable/generated/torch.stft.html
+win_length (int, optional): the size of window frame and STFT filter. Default: ``None`` (treated as equal to :attr:`n_fft`)
+http://librosa.org/doc/main/_modules/librosa/core/spectrum.html#stft
+
+fft butterfly:
+https://www.cmlab.csie.ntu.edu.tw/cml/dsp/training/coding/transform/fft.html
+
+exp(复数)
+https://people.math.wisc.edu/~angenent/Free-Lecture-Notes/freecomplexnumbers.pdf
+
+mel滤波器组：
+https://pytorch.org/audio/stable/_modules/torchaudio/functional/functional.html#melscale_fbanks
